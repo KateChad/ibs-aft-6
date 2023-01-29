@@ -8,10 +8,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class BankiTest extends BaseTests {
 
-    static Data[] dataPack() {return new Data[]{
-            packageData.getPack1(), packageData.getPack2()
+    static Data[] dataPack() {
+        return new Data[]{
+                packageData.getPack1(), packageData.getPack2()
         };
     }
+
     @ParameterizedTest
     @MethodSource("dataPack")
     @DisplayName("Проверка калькулятора доходности")
@@ -28,25 +30,16 @@ public class BankiTest extends BaseTests {
                 .selectParameterFromDropDownList("Срок", data.getTime())
                 .checkParametrFromDropDownList("Срок", data.getTime())
                 .selectParameterFromDropDownList("Тип вклада", data.getDepositType())
-                .checkParametrFromDropDownList("Тип вклада", data.getDepositType());
-
-        for (String bank : data.getBanksList()) {
-            pageManager.getPage(CalculationFormPage.class)
-                    .selectBank(bank)
-                    .checkSelectBank(bank);
-        }
-
-        //дописать проверки на клик по чекбоксам, не могу найти изменения в html
-        for (String parameters : data.getDipositParametersList()) {
-            pageManager.getPage(CalculationFormPage.class).selectParameter(parameters);
-        }
-        pageManager.getPage(CalculationFormPage.class)
+                .checkParametrFromDropDownList("Тип вклада", data.getDepositType())
+                .selectBanks(data.getBanksList())
+                .checkBanks(data.getBanksList())
+                //дописать проверки на клик по чекбоксам, не могу найти изменения в html
+                .selectParameters(data.getDipositParametersList())
                 .checkCountDepositsInButton(data.getCheckCountDeposit())
                 .showResult()
                 .checkSearchResult(data.getCheckCountDeposit())
                 .closeModalWindow()
                 .checkСontribution(data.getCheckBunk(), data.getCheckBidBank(), data.getCheckTermBank(),
                         data.getCheckIncomeBank());
-        //проверка по срокам
     }
 }

@@ -92,8 +92,15 @@ public class CalculationFormPage extends BasePage {
         return this;
     }
 
-    @Step("Проверка выбора банка {nameOfBank}")
-    public CalculationFormPage checkSelectBank(String nameOfBank) {
+    @Step("Выбор банков {banks}")
+    public CalculationFormPage selectBanks(List<String> banks){
+        for (String bank : banks) {
+            selectBank(bank);
+        }
+        return this;
+    }
+
+    private CalculationFormPage checkSelectBank(String nameOfBank) {
         inputBank.click();
         for (WebElement selectParameter : dropDownListOfBank) {
             if (waitUntilElementToBeVisible(selectParameter).getText().contains(nameOfBank)) {
@@ -108,8 +115,15 @@ public class CalculationFormPage extends BasePage {
         return this;
     }
 
-    @Step("Параметр {nameOfParameter} выбран")
-    public CalculationFormPage selectParameter(String nameOfParameter) {
+    @Step("Проверка выбора банков {banks}")
+    public CalculationFormPage checkBanks(List<String> banks){
+        for (String bank : banks) {
+            checkSelectBank(bank);
+        }
+        return this;
+    }
+
+    private CalculationFormPage selectParameter(String nameOfParameter) {
         for (WebElement parameter : checkboxWithParametrs) {
             if (parameter.findElement(By.xpath("./span[2]"))
                     .getText().contains(nameOfParameter)) {
@@ -118,6 +132,14 @@ public class CalculationFormPage extends BasePage {
             }
         }
         Assertions.fail("Чекбокс " + nameOfParameter + " не найден");
+        return this;
+    }
+
+    @Step("Выбор параметров {parameters}")
+    public CalculationFormPage selectParameters(List<String> parameters){
+        for (String parameter : parameters) {
+            selectParameter(parameter);
+        }
         return this;
     }
 
