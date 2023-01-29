@@ -4,14 +4,18 @@ import framework.pages.CalculationFormPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class BankiTest extends BaseTests {
-    PackageData pack = new PackageData();
-    Data data = pack.getPack2();
 
-    @Test
+    static Data[] dataPack() {return new Data[]{
+            packageData.getPack1(), packageData.getPack2()
+        };
+    }
+    @ParameterizedTest
+    @MethodSource("dataPack")
     @DisplayName("Проверка калькулятора доходности")
-    public void bankiTest() {
+    public void bankiTest(Data data) {
         pageManager.getPage(CalculationFormPage.class)
                 .getBaseMenuBlock()
                 .checkHeaderMenuBlock()
@@ -21,9 +25,9 @@ public class BankiTest extends BaseTests {
                 .checkCalculation()
                 .inputDepositAmount(data.getDepositAmount())
                 .checkDepositAmount(data.getDepositAmount())
-                .selectParametrFromDropDownList("Срок", data.getTime())
+                .selectParameterFromDropDownList("Срок", data.getTime())
                 .checkParametrFromDropDownList("Срок", data.getTime())
-                .selectParametrFromDropDownList("Тип вклада", data.getDepositType())
+                .selectParameterFromDropDownList("Тип вклада", data.getDepositType())
                 .checkParametrFromDropDownList("Тип вклада", data.getDepositType());
 
         for (String bank : data.getBanksList()) {

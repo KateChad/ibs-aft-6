@@ -41,8 +41,8 @@ public class CalculationFormPage extends BasePage {
         return this;
     }
 
-    @Step("Выбрать в {nameOfDropDown} параметр {selectParametr}")
-    public CalculationFormPage selectParametrFromDropDownList(String nameOfDropDown, String selectParametr) {
+    @Step("Выбрать в {nameOfDropDown} параметр {selectParameter}")
+    public CalculationFormPage selectParameterFromDropDownList(String nameOfDropDown, String selectParameter) {
         for (WebElement dropDownElement : dropDownList) {
             if (dropDownElement.findElement(By.xpath(".//../label"))
                     .getText().contains(nameOfDropDown)) {
@@ -50,7 +50,7 @@ public class CalculationFormPage extends BasePage {
                         .xpath(".//div[@data-test='dropdown-button']"));
                 waitUntilElementToBeClicable(dropDownButton).click();
                 for (WebElement textInDropDownElement : dropDownListContainsText) {
-                    if (textInDropDownElement.getText().contains(selectParametr)) {
+                    if (textInDropDownElement.getText().contains(selectParameter)) {
                         waitUntilElementToBeClicable(textInDropDownElement).click();
                         return this;
                     }

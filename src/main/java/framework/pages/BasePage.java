@@ -74,7 +74,7 @@ public class BasePage {
     }
 
     protected void clickWithOffset(WebElement element,int x, int y){
-        actions.moveToElement(element,x,y).click(element);
+        actions.moveToElement(element,x,y).pause(100).click(element).build().perform();
     }
 
 }

@@ -59,13 +59,10 @@ public class СontributionsPage extends BasePage {
 
     @Step("Закрытие модального окна")
     public СontributionsPage closeModalWindow() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        if (!resultSearch.isDisplayed()) {
+            clickWithOffset(modalWindow, 250, 0);
         }
-            clickWithOffset(modalWindow, 250, 40);
-            return this;
+        return this;
     }
 
     @Step("Проверка количества вкладов")
