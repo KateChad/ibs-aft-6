@@ -8,15 +8,14 @@ public class PackageData {
     List<String> listBank1 = Arrays.asList("ВТБ", "Тинькофф", "Сбербанк", "Газпромбанк");
     List<String> listParameters1 = Arrays.asList("Со снятием", "С пополнением", "С капитализацией");
     Data pack1 = new Data("1000000","6 месяцев","Обычные вклады",
-            listBank1,listParameters1,"14", "Тинькофф", "5,63",
-            "182","27741");
-
+            listBank1,listParameters1,"13", "Тинькофф", "5,63",
+            "182","27742");
     List<String> listBank2 = Arrays.asList("Ак Барс", "РОССИЯ", "Сбербанк");
     List<String> listParameters2 = Arrays.asList("С выплатой процентов");
 
     Data pack2 = new Data("500000","2 года","Детский",
             listBank2,listParameters2,"7", "Сбербанк", "6,80",
-            "730","72514");
+            "730","72515");
 
     public Data getPack1() {
         return pack1;

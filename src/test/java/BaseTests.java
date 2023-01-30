@@ -17,12 +17,10 @@ public class BaseTests {
     private DriverManager driverManager = DriverManager.getInstance();
     protected PageManager pageManager = PageManager.getInstance();
     private TestPropManager propManager = TestPropManager.getInstance();
-    @BeforeAll
-    public static void beforeClass(){
-       InitManager.initFramework();
-    }
+
     @BeforeEach
     public void before() {
+        InitManager.initFramework();
         driverManager.getDriver().get(propManager.getProperty(PropsConst.BASE_URL));
     }
     @AfterEach

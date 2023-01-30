@@ -10,7 +10,7 @@ public class BankiTest extends BaseTests {
 
     static Data[] dataPack() {
         return new Data[]{
-                packageData.getPack1(), packageData.getPack2()
+                packageData.getPack2(),packageData.getPack1(),
         };
     }
 
@@ -37,8 +37,8 @@ public class BankiTest extends BaseTests {
                 .selectParameters(data.getDipositParametersList())
                 .checkCountDepositsInButton(data.getCheckCountDeposit())
                 .showResult()
-                .checkSearchResult(data.getCheckCountDeposit())
                 .closeModalWindow()
+                .checkSearchResult(data.getCheckCountDeposit())
                 .checkСontribution(data.getCheckBunk(), data.getCheckBidBank(), data.getCheckTermBank(),
                         data.getCheckIncomeBank());
     }
