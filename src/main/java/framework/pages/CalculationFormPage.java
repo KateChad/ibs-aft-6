@@ -14,17 +14,17 @@ public class CalculationFormPage extends BasePage {
 
     @FindBy(xpath = ".//div[@direction='vert']//input[@name ='amount']")
     WebElement depositAmountInput;
-    @FindBy(xpath = ".//div[@direction='vert']//div[@data-test='dropdown']")
+    @FindBy(xpath = "//div[@direction='vert']//div[@data-test='dropdown']")
     List<WebElement> dropDownList;
-    @FindBy(xpath = ".//div[@direction='vert']//div[@data-test='dropdown']//li/div")
+    @FindBy(xpath = "//div[@direction='vert']//div[@data-test='dropdown']//li/div")
     List<WebElement> dropDownListContainsText;
-    @FindBy(xpath = ".//div[@direction='vert']//div[@data-placement='bottom']//li//label")
+    @FindBy(xpath = "//div[@direction='vert']//div[@data-placement='bottom']//li//label")
     List<WebElement> dropDownListOfBank;
-    @FindBy(xpath = ".//div[@direction='vert']//label[contains(text(),'Банки')]//../input")
+    @FindBy(xpath = "//div[@direction='vert']//label[contains(text(),'Банки')]//../input")
     WebElement inputBank;
-    @FindBy(xpath = ".//div[@direction='vert']//label[contains(@class,'Checkbox')]")
+    @FindBy(xpath = "//div[@direction='vert']//input[@type='checkbox']//..")
     List<WebElement> checkboxWithParametrs;
-    @FindBy(xpath = ".//div[contains(@class,'ModalBody')]//button")
+    @FindBy(xpath = "//div[contains(@class,'SearchModal')]/button")
     WebElement buttonShow;
 
     @Step("Ввод суммы вклада")

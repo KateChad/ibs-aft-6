@@ -16,7 +16,7 @@ public class СontributionsPage extends BasePage {
     WebElement page;
     //    @FindBy(xpath = "//div[contains(@class,'GridVertical')]//button")
 //    WebElement confirmCityButton;
-    @FindBy(xpath = "//div[@direction = 'row' and contains(@class,'FlexboxGrid')]//button")
+    @FindBy(xpath = "//div[@id='deposit_search_form']//button")
     WebElement calculation;
     @FindBy(xpath = "//div[@data-test='button-round-title']")
     List<WebElement> buttonsInCalculationFormList;
