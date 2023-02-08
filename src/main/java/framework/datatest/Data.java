@@ -3,16 +3,16 @@ package framework.datatest;
 import java.util.List;
 
 public class Data {
-    String depositAmount;
-    String time;
-    String depositType;
-    List<String> banksList;
-    List<String> dipositParametersList;
-    String checkCountDeposit;
-    String checkBunk;
-    String checkBidBank;
-    String checkTermBank;
-    String checkIncomeBank;
+    private String depositAmount;
+    private String time;
+    private String depositType;
+    private List<String> banksList;
+    private List<String> dipositParametersList;
+    private String checkCountDeposit;
+    private String checkBunk;
+    private String checkBidBank;
+    private String checkTermBank;
+    private String checkIncomeBank;
 
     public Data(String depositAmount, String time, String depositType, List<String> banksList,
                 List<String> dipositParametersList, String checkCountDeposit, String checkBunk, String checkBidBank,

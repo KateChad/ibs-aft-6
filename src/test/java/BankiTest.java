@@ -33,8 +33,8 @@ public class BankiTest extends BaseTests {
                 .checkParametrFromDropDownList("Тип вклада", data.getDepositType())
                 .selectBanks(data.getBanksList())
                 .checkBanks(data.getBanksList())
-                //дописать проверки на клик по чекбоксам, не могу найти изменения в html
                 .selectParameters(data.getDipositParametersList())
+                .checkSelectParameters(data.getDipositParametersList())
                 .checkCountDepositsInButton(data.getCheckCountDeposit())
                 .showResult()
                 .closeModalWindow()
